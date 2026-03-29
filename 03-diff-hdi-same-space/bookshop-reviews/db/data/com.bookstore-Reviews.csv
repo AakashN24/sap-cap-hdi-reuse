@@ -1,0 +1,9 @@
+ID,bookID,reviewer,rating,comment
+R1000000-0000-0000-0000-000000000001,B1000000-0000-0000-0000-000000000001,Alice Johnson,5,Absolutely magical and captivating from start to finish
+R1000000-0000-0000-0000-000000000002,B1000000-0000-0000-0000-000000000003,Bob Smith,5,A chilling and thought provoking masterpiece
+R1000000-0000-0000-0000-000000000003,B1000000-0000-0000-0000-000000000005,Carol White,4,A brilliant mystery that keeps you guessing till the end
+R1000000-0000-0000-0000-000000000004,B1000000-0000-0000-0000-000000000007,David Brown,4,A fun and nostalgic classic full of adventure
+R1000000-0000-0000-0000-000000000005,B1000000-0000-0000-0000-000000000002,Eve Davis,5,Even better than the first book in the series
+R1000000-0000-0000-0000-000000000006,B1000000-0000-0000-0000-000000000004,Frank Miller,4,A simple yet powerful political allegory
+R1000000-0000-0000-0000-000000000007,B1000000-0000-0000-0000-000000000003,Carol White,5,Read it twice and it gets even more terrifying
+R1000000-0000-0000-0000-000000000008,B1000000-0000-0000-0000-000000000006,Alice Johnson,3,Good mystery but not as gripping as Orient Express
