@@ -1,4 +1,4 @@
-namespace com.bookstore;
+namespace com.bookstore.shop;
 
 entity Orders {
     key ID       : UUID;
