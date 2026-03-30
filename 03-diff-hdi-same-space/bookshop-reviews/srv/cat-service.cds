@@ -1,4 +1,4 @@
-using com.bookstore as my from '../db/schema';
+using com.bookstore.shop as my from '../db/schema';
 
 service bookStoreReview {
     entity Reviews as projection on my.Reviews;

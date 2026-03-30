@@ -1,0 +1,21 @@
+{
+    "role": {
+        "name": "bookstore_shop_access",
+        "object_privileges": [
+            {
+                "name": "COM_BOOKSTORE_SHOP_ORDERS",
+                "type": "TABLE",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "COM_BOOKSTORE_SHOP_REVIEWS",
+                "type": "TABLE",
+                "privileges": [
+                    "SELECT"
+                ]
+            }
+        ]
+    }
+}
