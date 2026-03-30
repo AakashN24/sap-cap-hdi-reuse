@@ -1,4 +1,4 @@
-namespace com.catalog;
+namespace com.bookstore.masterdata;
 
 entity Authors {
   key ID          : UUID;
