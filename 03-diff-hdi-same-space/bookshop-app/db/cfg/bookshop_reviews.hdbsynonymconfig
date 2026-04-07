@@ -2,7 +2,7 @@
     "COM_BOOKSTORE_SHOP_SYS_ORDERS": {
         "target": {
             "object": "COM_BOOKSTORE_SHOP_ORDERS",
-            "schema": "bookshop-reviews-db-hdi-key/schema"
+            "schema.configure": "bookshop-reviews-db-hdi-key/schema"
         }
     }
 }
