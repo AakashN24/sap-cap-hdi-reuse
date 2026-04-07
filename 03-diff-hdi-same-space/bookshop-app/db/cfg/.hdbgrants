@@ -1,0 +1,14 @@
+{
+    "bookshop-reviews-db-hdi-key": {
+        "object_owner": {
+            "container_roles": [
+                "bookstore_shop_access_G#"
+            ]
+        },
+        "application_user": {
+            "container_roles": [
+                "bookstore_shop_access"
+            ]
+        }
+    }
+}

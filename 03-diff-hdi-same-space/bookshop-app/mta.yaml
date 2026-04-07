@@ -1,0 +1,71 @@
+_schema-version: 3.3.0
+ID: bookshop-app
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: bookshop-app-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: bookshop-app-db
+      - name: bookshop-app-auth
+
+  - name: bookshop-app-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: bookshop-app-db
+        properties:
+          TARGET_CONTAINER: ~{bookshop-app-hdi}
+      - name: bookshop-reviews-db
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: bookshop-reviews-db-hdi-key
+          service: ~{bookshop-reviews-db-hdi}
+resources:
+  - name: bookshop-app-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-name: bookshop-app-db
+      service-plan: hdi-shared
+    properties:
+      bookshop-app-hdi: ${service-name}
+  - name: bookshop-app-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: bookshop-app-${org}-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"
+  - name: bookshop-reviews-db
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: bookshop-reviews-db
+    properties:
+      bookshop-reviews-db-hdi: ${service-name}
